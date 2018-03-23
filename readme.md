@@ -127,7 +127,7 @@ https://segmentfault.com/a/1190000009565131
 
 ### 坑:
 
-Computed property "currentPage" was assigned to but it has no setter
+##### Computed property "currentPage" was assigned to but it has no setter
 ```js
 
  // currentPage () {
@@ -144,3 +144,16 @@ Computed property "currentPage" was assigned to but it has no setter
 ```
 https://segmentfault.com/q/1010000010358438/a-1020000010358925
 https://github.com/ElemeFE/mint-ui/issues/1000
+
+##### vuex 的dispatch和commit提交mutation的区别
+
+很简单，一个异步操作与同步操作的区别。
+
+当你的操作行为中含有异步操作，比如向后台发送请求获取数据，就需要使用action的dispatch去完成了。
+其他使用commit即可。
+
+官方文档：
+[vuex action介绍](https://vuex.vuejs.org/zh-cn/actions.html)
+
+#### [vue中更改state的值](https://segmentfault.com/q/1010000009619507/a-1020000009620104)
+

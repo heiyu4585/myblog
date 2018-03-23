@@ -35,11 +35,12 @@ export default new Vuex.Store({
                 state.currentPage--
             }
         },
-        //she设置当前页
+        //she设置当前页    ////todo 设置为指定页数
         setCurrentPage: (state, currentPage) => {
             state.currentPage = currentPage;
         }
     },
+    ////todo 设置为指定页数
     actions: {
         //she设置当前页
         setCurrentPage: ({commit}, {currentPage}) => {

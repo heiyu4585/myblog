@@ -157,3 +157,10 @@ https://github.com/ElemeFE/mint-ui/issues/1000
 
 #### [vue中更改state的值](https://segmentfault.com/q/1010000009619507/a-1020000009620104)
 
+#### [vuex-demo](https://github.com/sailengsi/sls-vuex2-demo
+
+#### ssr适合多页 还是 单页
+
+https://github.com/vuejs/vue-hackernews-2.0/issues/187#issuecomment-303688734\
+
+https://github.com/hilongjw/vue-ssr-hmr-template/issues/4

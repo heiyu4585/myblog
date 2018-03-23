@@ -124,3 +124,23 @@ webpack如何提取vue组件的css到独立文件中:`ExtractTextPlugin.extract`
 
 
 https://segmentfault.com/a/1190000009565131
+
+### 坑:
+
+Computed property "currentPage" was assigned to but it has no setter
+```js
+
+ // currentPage () {
+            //     return store.state.currentPage
+            // }
+
+            currentPage: {
+                get: function () {
+                    return store.state.currentPage
+                },
+                set: function () {
+                }
+            }
+```
+https://segmentfault.com/q/1010000010358438/a-1020000010358925
+https://github.com/ElemeFE/mint-ui/issues/1000

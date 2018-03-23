@@ -231,10 +231,10 @@ module.exports = {
                 category_id:{type:GraphQLInt}
             },
             resolve: async (source,args) => {
-                console.log(args)
+                // console.log(args)
                 let limitLeft = (args.page_no-1)*args.page_items;
-                console.log("========")
-                console.log("limitleft"+limitLeft)
+                // console.log("========")
+                // console.log("limitleft"+limitLeft)
                 // let limitRight =args.page_no*args.page_items;
                 //          # 总共有多少条数据
                 // total_items: {
@@ -270,8 +270,6 @@ module.exports = {
                     result.total_items =(await util.searchSql($articleSql.articleLength))[0].total;
                     result.rows = await util.searchSql($articleSql.articles,[limitLeft,args.page_items]);
                 }
-                console.log(result);
-
                 return result;
             }
         },

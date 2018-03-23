@@ -6,6 +6,10 @@ import App from './App.vue';
 
 Vue.use(ElementUI);
 Vue.use(VueRouter);
+
+import Vuex from 'vuex'
+Vue.use(Vuex)
+
 import routes from "./router";
 
 // 3. 创建 router 实例，然后传 routes 配置

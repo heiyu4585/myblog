@@ -5,6 +5,40 @@
     <title>Title</title>
 </head>
 <body>
-404sdf
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/vuex"></script>
+<div id="app">
+    <p>{{count}}
+        <button @click="inc">+</button>
+        <button @click="dec">-</button>
+    </p>
+</div>
+<script>
+    const store = new Vuex.Store({
+        state: {
+            count: 0
+        },
+        mutations: {
+            inc: state => state.count++,
+            dec: state => state.count--
+        }
+    })
+    const app = new Vue({
+        el: '#app',
+        computed: {
+            count () {
+                return store.state.count
+            }
+        },
+        methods: {
+            inc () {
+                store.commit('inc')
+            },
+            dec () {
+                store.commit('dec')
+            }
+        }
+    })
+</script>
 </body>
 </html>

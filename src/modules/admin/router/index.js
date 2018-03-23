@@ -6,12 +6,18 @@ import article from '../components/article';
 import articleAdd from '../components/articleAdd';
 import articleEdit from '../components/articleEdit';
 import articleList from '../components/articleList';
+import test from '../components/test';
 
 export default ([
         {
             path: '/',
             name: 'index',
             component: index,
+        },
+        {
+            path: '/test',
+            name: 'test',
+            component: test,
         },
         {
             path: '/article',

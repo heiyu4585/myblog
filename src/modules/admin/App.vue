@@ -20,30 +20,19 @@
                             <a href="/admin#/article/list">文章列表</a>
                         </el-menu-item>
                     </el-menu-item-group>
-                    <!--<el-menu-item-group title="分组2">-->
-                        <!--<el-menu-item index="1-3">选项3</el-menu-item>-->
-                    <!--</el-menu-item-group>-->
-                    <!--<el-submenu index="1-4">-->
-                        <!--<span slot="title">选项4</span>-->
-                        <!--<el-menu-item index="1-4-1">选项1</el-menu-item>-->
-                    <!--</el-submenu>-->
                 </el-submenu>
-                <!--<el-menu-item index="2">-->
-                    <!--<i class="el-icon-menu"></i>-->
-                    <!--<span slot="title">导航二</span>-->
-                <!--</el-menu-item>-->
-                <!--<el-menu-item index="3" disabled>-->
-                    <!--<i class="el-icon-document"></i>-->
-                    <!--<span slot="title">导航三</span>-->
-                <!--</el-menu-item>-->
-                <!--<el-menu-item index="4">-->
-                    <!--<i class="el-icon-setting"></i>-->
-                    <!--<span slot="title">导航四</span>-->
-                <!--</el-menu-item>-->
             </el-menu>
 
         </el-aside>
         <el-container>
+            <p>{{count}}
+                <button @click="inc">+</button>
+                <button @click="dec">-</button>
+            </p>
+            <p>页数改变{{currentPage}}
+                <button @click="addPage">+</button>
+                <button @click="subductionPage">-</button>
+            </p>
             <el-header>Header</el-header>
             <el-main>
                 <router-view></router-view>
@@ -55,18 +44,21 @@
 
 <script>
     import 'common/common.scss';
-    import Header from 'components/Header';
-    import Nav from 'components/Nav';
-    import Aside from 'components/Aside';
-    import Foot from 'components/Foot';
-    import Article from 'components/Article';
-    import axios from 'axios';
-
+    import store from './store';
     export default {
+        store,
         data() {
             return {
                 isCollapse: false
             };
+        },
+        computed: {
+            count () {
+                return store.state.count
+            },
+            currentPage(){
+                return store.state.currentPage
+            }
         },
         methods: {
             handleOpen(key, keyPath) {
@@ -74,7 +66,19 @@
             },
             handleClose(key, keyPath) {
                 console.log(key, keyPath);
-            }
+            },
+            inc () {
+                store.commit('inc')
+            },
+            dec () {
+                store.commit('dec')
+            },
+            subductionPage(){
+                store.commit('subductionPage')
+            },
+            addPage(){
+                store.commit('addPage')
+            },
         }
     }
 </script>

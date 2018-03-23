@@ -44,13 +44,14 @@
     import 'common/common.scss';
     import axios from 'axios';
     const util = require("@util/util");
+    import store from '../store'
     export default {
         name: 'app',
         data() {
             return {
                 artList: [],
                 total_items:0,
-                currentPage: 1, //当前页
+                // currentPage: store.state.currentPage, //当前页
                 page_items:10,  //每页显示的数目
                 category_id:null
             }
@@ -60,7 +61,8 @@
                 this.page_items = val;
             },
             handleCurrentChange(val) {
-                this.currentPage =val;
+                store.state.currentPage =val;
+                this.currentPage =store.state.currentPage;
                 this.getArticle({currentPage:this.currentPage,page_items:this.page_items,category_id:this.category_id});
             },
             getArticle({currentPage,page_items,category_id}){
@@ -94,14 +96,29 @@
                         this.artList = response.data.data.articles.rows;
                         this.total_items = response.data.data.articles.total_items;
                         this.page_no = response.data.data.articles.page_no;
+
+                        store.state.totalPages =Math.ceil(this.total_items/this.page_items);
+                        console.log(store.state.totalPages);
                     }.bind(this));
             }
         },
         components: {
 
         },
+        computed: {
+            // currentPage () {
+            //     return store.state.currentPage
+            // }
+
+            currentPage: {
+                get: function () {
+                    return store.state.currentPage
+                },
+                set: function () {
+                }
+            }
+        },
         mounted: function () {
-            console.log(111111)
             this.getArticle({currentPage:this.currentPage,page_items:this.page_items,category_id:this.category_id});
         },
     }

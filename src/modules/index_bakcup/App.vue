@@ -6,7 +6,7 @@
         <Nav></Nav>
         <el-container>
             <el-main>
-                <Article v-for="(item, index) in artList" :item="item" :key="index"></Article>
+                <Article v-for="(item, index) in artList" :item="item" :key="item.id"></Article>
                 <el-pagination
                         layout="prev, pager, next"
                         :page-size="page_items"
@@ -35,7 +35,6 @@
     import Foot from 'components/Foot';
     import Article from 'components/Article';
     import axios from 'axios';
-    const util = require("../../../util/util");
 
     export default {
         name: 'app',
@@ -45,8 +44,7 @@
                 artList: [],
                 total_items:0,
                 currentPage: 1, //当前页
-                page_items:1,  //每页显示的数目
-                category_id:null
+                page_items:8   //每页显示的数目
             }
         },
         methods: {
@@ -55,9 +53,10 @@
             },
             handleCurrentChange(val) {
                 this.currentPage =val;
-                this.getArticle({currentPage:this.currentPage,page_items:this.page_items,category_id:this.category_id});
+                console.log(`当前页: ${val}`);
+                this.getArticle({currentPage:this.currentPage,page_items:this.page_items});
             },
-            getArticle({currentPage,page_items,category_id}){
+            getArticle({currentPage,page_items}){
                 axios({
                     method: 'post',
                     url: '/api',
@@ -65,7 +64,7 @@
                         query:
                             `
                         {
-                         articles(page_no:${currentPage},page_items:${page_items},category_id:${category_id}){
+                         articles(page_no:${currentPage},page_items:${page_items}){
                           page_items
                           page_no
                           total_items
@@ -84,7 +83,6 @@
                     }
                 })
                     .then(function (response) {
-                        console.log(response);
                         this.artList = response.data.data.articles.rows;
                         this.total_items = response.data.data.articles.total_items;
                         this.page_no = response.data.data.articles.page_no;
@@ -100,8 +98,8 @@
         },
         mounted: function () {
             // GET request for remote image
-            this.category_id=util.getUrlKey("id");
-            this.getArticle({currentPage:this.currentPage,page_items:this.page_items,category_id:this.category_id});
+            console.log(this.currentPage);
+            this.getArticle({currentPage:this.currentPage,page_items:this.page_items});
         },
     }
 </script>

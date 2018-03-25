@@ -13,10 +13,13 @@ vue+vueRouter+express+express+mysql+graphQL
 6. markdown前后台支持
 7. express+webpack 一套环境搭建前后端应用
 4. 后台系统  博客文章的新增,更新
+1. 文章页搭建对于markdown
+  6. 更新修改文章
+
 
 ## todoList
 
-  1. 文章页搭建对于mackdown
+
   
   1. 登录系统
   
@@ -26,11 +29,13 @@ vue+vueRouter+express+express+mysql+graphQL
   
   5. vue-router article文章修改和栏目是否使用同一个layout
   
-  6. 更新修改文章
-
   7. graphQL+passport https://github.com/jessedvrs/graphql-passport-example
   
-  8. graphql引用方式修改
+  8. graphql引用方式修改(引用方式???)
+
+  9. 去掉#号https://router.vuejs.org/zh-cn/essentials/history-mode.html
+
+  10.栏目URL点击后不跳转
 
 
 1.markdown组件

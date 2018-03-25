@@ -20,7 +20,7 @@
                         :key="nav.id"
                 >
                     <!--https://segmentfault.com/q/1010000009175454/a-1020000009175738-->
-                    <a :href="'category?id='+nav.category_id">
+                    <a :href="'/index/#/category?id='+nav.category_id">
                         {{ nav.category_name }}
                     </a>
                 </li>

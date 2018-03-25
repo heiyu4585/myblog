@@ -17,7 +17,7 @@ export default ([
         {
             path: '/test',
             name: 'test',
-            component: test,
+            component: index,
         },
         {
             path: '/article',

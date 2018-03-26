@@ -23,10 +23,9 @@
         data() {
             return {
                 message: 'Welcome to Your Vue.js App',
-                artList: [],
                 total_items:0,
                 // currentPage: 1, //当前页
-                page_items:2,   //每页显示的数目
+                page_items:3,   //每页显示的数目
                 category_id:null
             }
         },
@@ -71,12 +70,14 @@
                     }
                 })
                     .then(function (response) {
-                        this.artList = response.data.data.articles.rows;
+                        // this.artList = response.data.data.articles.rows;
                         this.total_items = response.data.data.articles.total_items;
                         this.page_no = response.data.data.articles.page_no;
 
                         store.state.totalPages =Math.ceil(this.total_items/this.page_items);
-                        console.log(store.state.totalPages);
+                        store.state.artList=response.data.data.articles.rows;
+                        console.log("这里赋值======")
+                        console.log(store.state.artList);
                     }.bind(this));
             }
         },
@@ -94,6 +95,9 @@
                 },
                 set: function () {
                 }
+            },
+            artList(){
+                return store.state.artList
             }
         },
         mounted: function () {

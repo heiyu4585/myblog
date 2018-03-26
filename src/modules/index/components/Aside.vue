@@ -11,7 +11,7 @@
             <div class="clear"></div>
         </aside>
         <aside id="categories-3" class="widget widget_categories clearfix">
-            <p>页数改变{{currentPage}}
+            <p>页数改变{{currentPage}} - 总页数: {{totalPages}}
                 <button @click="addPage">+</button>
                 <button @click="subductionPage">-</button>
             </p>
@@ -31,6 +31,7 @@
             </ul>
             <div class="clear"></div>
         </aside>
+        <Article v-for="(item, index) in artList" :item="item" :key="item.id"></Article>
         <!--<aside id="hot_post-2" class="widget widget_hot_post">-->
             <!--<h3 class="widget-title"><p><i class="icon-st"></i></p>热门文章</h3>-->
             <!--<div id="hot_post_widget">-->
@@ -47,6 +48,7 @@
 
 <script type="text/ecmascript-6">
     import axios from 'axios';
+    import Article from './Article';
     import store from '../store';
     export default {
         store,
@@ -77,6 +79,7 @@
             },
         },
         components: {
+            Article
         },
         computed: {
             count () {
@@ -84,6 +87,12 @@
             },
             currentPage(){
                 return store.state.currentPage
+            },
+            totalPages(){
+                return store.state.totalPages
+            },
+            artList(){
+                return store.state.artList
             }
         },
         mounted: function () {

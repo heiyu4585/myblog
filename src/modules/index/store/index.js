@@ -7,16 +7,14 @@ export default new Vuex.Store({
     state: {
         count: 0,
         currentPage: 1, //当前页
-        totalPages: 1
+        totalPages: 1,
+        artList:[]
     },
     mutations: {
         inc: state => state.count++,
         dec: state => state.count--,
         //增加页数
         addPage: state => {
-            console.log("增加页数的地方执行了");
-            console.log("当前页:"+state.currentPage);
-            console.log("总页数:"+state.totalPages);
             if (state.currentPage > state.totalPages) {
                 state.currentPage = state.totalPages
             } else {
@@ -25,12 +23,6 @@ export default new Vuex.Store({
         },
 
         subductionPage: state => {
-            console.log("减少页数的地方执行了")
-            // 总页数页数
-            console.log("当前页:"+state.currentPage);
-            console.log("总页数:"+state.totalPages);
-
-
             if (state.currentPage = 1) {
                 state.currentPage = 1
             } else {
@@ -52,6 +44,7 @@ export default new Vuex.Store({
             commit('setCurrentPage', currentPage);
         },
         setArtListActions: ({commit}, {artList}) => {
+            console.log("我接收到了"+artList)
             commit('setArtList', artList);
         },
     }

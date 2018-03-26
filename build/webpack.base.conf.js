@@ -59,24 +59,6 @@ module.exports = {
                 test: /\.vue$/,
                 loader: 'vue-loader',
                 options: vueLoaderConfig,
-                //TODO css不能热更新
-                // options: {
-                //     loaders: {
-                //         css:  ['css-hot-loader'].concat(ExtractTextPlugin.extract({
-                //             use: 'css-loader',
-                //             fallback: 'vue-style-loader' // <- 这是vue-loader的依赖，所以如果使用npm3，则不需要显式安装
-                //         })),
-                //         sass: ExtractTextPlugin.extract({
-                //             use:'css-loader!sass-loader',
-                //             fallback: 'vue-style-loader' // <- 这是vue-loader的依赖，所以如果使用npm3，则不需要显式安装
-                //         }),
-                //         scss: ExtractTextPlugin.extract({
-                //             use:'css-loader!sass-loader',
-                //             fallback: 'vue-style-loader' // <- 这是vue-loader的依赖，所以如果使用npm3，则不需要显式安装
-                //         })
-                //     }
-                // }
-
             },
             {
                 test: /\.js$/,

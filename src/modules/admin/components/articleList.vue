@@ -61,7 +61,9 @@
                 this.page_items = val;
             },
             handleCurrentChange(val) {
+                console.log("ye分页中的当前页:"+store.state.currentPage);
                 store.state.currentPage =val;
+                console.log("ye分页中的当前页修改后:"+store.state.currentPage);
                 this.currentPage =store.state.currentPage;
                 this.getArticle({currentPage:this.currentPage,page_items:this.page_items,category_id:this.category_id});
             },
@@ -119,6 +121,7 @@
             }
         },
         mounted: function () {
+            console.log(this.currentPage);
             this.getArticle({currentPage:this.currentPage,page_items:this.page_items,category_id:this.category_id});
         },
     }

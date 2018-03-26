@@ -18,11 +18,11 @@
 
 <script>
     import 'common/common.scss';
-    import Header from 'components/Header';
-    import Nav from 'components/Nav';
-    import Aside from 'components/Aside';
-    import Foot from 'components/Foot';
-    import Article from 'components/Article';
+    import Header from './components/Header';
+    import Nav from './components/Nav';
+    import Aside from './components/Aside';
+    import Foot from './components/Foot';
+    import Article from './components/Article';
     import axios from 'axios';
 
     export default {

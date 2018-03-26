@@ -14,17 +14,20 @@
 </template>
 
 <script>
-    import Article from 'components/Article';
+    import Article from './Article';
     import axios from 'axios';
+    import store from '../store'
     export default {
+        store,
         name: 'app',
         data() {
             return {
                 message: 'Welcome to Your Vue.js App',
                 artList: [],
                 total_items:0,
-                currentPage: 1, //当前页
-                page_items:8   //每页显示的数目
+                // currentPage: 1, //当前页
+                page_items:2,   //每页显示的数目
+                category_id:null
             }
         },
         methods: {
@@ -32,9 +35,14 @@
                 this.page_items = val;
             },
             handleCurrentChange(val) {
-                this.currentPage =val;
-                console.log(`当前页: ${val}`);
-                this.getArticle({currentPage:this.currentPage,page_items:this.page_items});
+                // this.currentPage =val;
+                // console.log(`当前页: ${val}`);
+                // this.getArticle({currentPage:this.currentPage,page_items:this.page_items});
+
+
+                store.state.currentPage =val;
+                this.currentPage =store.state.currentPage;
+                this.getArticle({currentPage:this.currentPage,page_items:this.page_items,category_id:this.category_id});
             },
             getArticle({currentPage,page_items}){
                 axios({
@@ -66,11 +74,27 @@
                         this.artList = response.data.data.articles.rows;
                         this.total_items = response.data.data.articles.total_items;
                         this.page_no = response.data.data.articles.page_no;
+
+                        store.state.totalPages =Math.ceil(this.total_items/this.page_items);
+                        console.log(store.state.totalPages);
                     }.bind(this));
             }
         },
         components: {
             Article
+        },
+        computed: {
+            // currentPage () {
+            //     return store.state.currentPage
+            // }
+
+            currentPage: {
+                get: function () {
+                    return store.state.currentPage
+                },
+                set: function () {
+                }
+            }
         },
         mounted: function () {
             // GET request for remote image

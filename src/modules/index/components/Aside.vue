@@ -11,6 +11,10 @@
             <div class="clear"></div>
         </aside>
         <aside id="categories-3" class="widget widget_categories clearfix">
+            <p>页数改变{{currentPage}}
+                <button @click="addPage">+</button>
+                <button @click="subductionPage">-</button>
+            </p>
             <h3 class="widget-title"><p><i class="icon-st"></i></p>分类目录</h3>
             <ul>
 
@@ -43,14 +47,44 @@
 
 <script type="text/ecmascript-6">
     import axios from 'axios';
+    import store from '../store';
     export default {
+        store,
         name: 'Nav',
         data () {
             return {
                 NavList:{}
             }
         },
+        methods: {
+            handleOpen(key, keyPath) {
+                console.log(key, keyPath);
+            },
+            handleClose(key, keyPath) {
+                console.log(key, keyPath);
+            },
+            inc () {
+                store.commit('inc')
+            },
+            dec () {
+                store.commit('dec')
+            },
+            subductionPage(){
+                store.commit('subductionPage')
+            },
+            addPage(){
+                store.commit('addPage')
+            },
+        },
         components: {
+        },
+        computed: {
+            count () {
+                return store.state.count
+            },
+            currentPage(){
+                return store.state.currentPage
+            }
         },
         mounted: function () {
             var _this= this;

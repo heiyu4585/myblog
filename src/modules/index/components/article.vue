@@ -1,110 +1,121 @@
+<!--单个的文章组件-->
 <template>
-    <el-main>
-        <article id="post-3227" class="post-3227 post type-post status-publish format-standard hentry category-javascript tag-express tag-vue">
-            <header class="single-header">
-                <h1 class="single-title">{{articleContent.art_title}}</h1>
-                <div class="single-meta">
-                    <span class="date"><i class="icon-date"></i>{{articleContent.art_create_time}}</span>
-                    <span class="cat"><i class="icon-cat"></i><a :href="'/category?id='+articleContent.id " rel="category tag">
-                                {{articleContent.category_name}}</a>
-                            </span>
-                    <span class="comment"><i class="icon-comment"></i>
-                                <a href="#">暂无评论</a>
-                            </span>
-                    <span class="views"><i class="icon-views"></i>阅读 9 次</span>
+    <div class="primary-site">
+        <article
+                class="post type-post status-publish format-standard hentry category-javascript tag-express tag-vue">
+            <section class="content">
+                <header class="entry-header">
+                    <div class="title-heavy"></div>
+                    <h2 class="entry-title">
+                        <a :href="'/index/#/article?id='+item.art_id" rel="bookmark"
+                           :title=item.art_title>
+                            {{item.art_title}}
+                        </a>
+                    </h2>
+                </header>
+                <!-- .entry-header -->
+                <div class="entry-content">
+                    <div class="entry-site">
+                        {{item.art_des}}
+                        <div class="clear"></div>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="entry-meta">
+				<span class="meta-site">
+					<span class="date"><i class="icon-date"></i>{{item.art_create_time}}</span>
+
+					<span class="comment"><i class="icon-comment"></i><a
+                            href="javascript:;">暂无评论</a></span>
+					<i class="icon-zan"></i>喜欢
+0					<span class="views"><i
+                        class="icon-views"></i>阅读 4 次</span>									</span>
+                        <span class="entry-more">
+                            <a :href="`/index/#/article?id=${item.art_id}`" rel="bookmark" title="共 10881字 阅读全文">阅读全文</a>
+                        </span>
+                    </div>
+                    <!-- .entry-meta -->
                 </div>
-                <!-- .entry-meta -->
-            </header>
-            <!-- .single-header -->
-            <div class="single-main">
-                <div class="content-main" v-html="articleContent.art_content">
-                </div>
-                <div class="clear"></div>
-            </div>
-            <!-- .single-content -->
+                <!-- .entry-content -->
+            </section>
+            <!-- #content -->
         </article>
-    </el-main>
+    </div>
 </template>
 
 <script>
-    import 'common/common.scss';
-    import Header from 'components/Header';
-    import Nav from 'components/Nav';
-    import Aside from 'components/Aside';
-    import Foot from 'components/Foot';
-    import Article from 'components/Article';
-    import axios from 'axios';
-    const util = require("@util/util");
     export default {
-        name: 'artilce',
-        data() {
-            return {
-                articleContent:{}
-            }
-        },
-        methods: {
-            getArticle(){
-                axios({
-                    method: 'post',
-                    url: '/api',
-                    data: {
-                        query:
-                            `
-{
-  article(art_id:${this.articleId}){
-    art_id
-    art_title
-    art_content
-    art_create_time
-    category_url
-    category_name
-  }
-}
-                    `
-                    }
-                })
-                    .then(function (response) {
-                        this.articleContent =response.data.data.article[0];
-                    }.bind(this));
-            }
-        },
-        components: {
-            Header,
-            Nav,
-            Aside,
-            Foot,
-            Article
-        },
-        mounted: function () {
-            this.articleId=util.getUrlKey("id");
-            this.getArticle();
-        },
+        // data () {
+        //     return {
+        //         message: this.message,
+        //     }
+        // },
+        name: "Article",
+        props: ['item']
     }
 </script>
 
-<style scoped>
-    /*文章内容*/
-    /*标题*/
-    .single-header {
-        margin: 10px 0 5px 0;
+<style lang="scss">
+    .entry-header {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
     }
-    .single-header h1 {
-        font-size: 18px;
+
+    .entry-header .title-heavy {
+        position: absolute;
+        background: #04a4cc;
+        top: 0;
+        left: -21px;
+        width: 5px;
+        height: 23px;
     }
-    .single-meta, .single-meta a {
+
+    .entry-header h2 {
+        font-size: 15px;
+        margin: 0 0 5px 0;
+    }
+
+    .entry-title {
+        width: 90%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .entry-meta, .entry-meta a {
         color: #8b8b8b;
     }
-    /*正文*/
-    .single-content p, .single-content ul, .single-content ol, .single-content dd, .single-content pre, .single-contenthr {
-        margin: 0 0 5px 0;
-        text-align: justify;
+
+    .entry-more a {
+        background: #04a4cc;
+        position: absolute;
+        bottom: -1px;
+        right: 20px;
+        color: #fff;
+        padding: 2px 8px;
+        border: 1px solid #04a4cc;
+        _display: none;
+    }
+
+    @media screen and (max-width: 1024px) {
+        .entry-site {
+            height: 110px;
+            overflow: hidden;
+        }
+    }
+
+    .entry-site {
+        height: 110px;
         text-justify: inter-ideograph;
         word-wrap: break-word;
         word-break: break-all;
-    }
-    .single-content p {
-        text-indent: 2em;
-        font-size: 16px;
+        color: #555;
         line-height: 160%;
     }
+
+    .entry-meta {
+        margin: 5px 0 0 0;
+    }
+
 </style>

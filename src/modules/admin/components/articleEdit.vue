@@ -26,7 +26,7 @@
 </template>
 
 <script>
-    import MarkdownEditor from 'components/MarkdownEditor';
+    import MarkdownEditor from './MarkdownEditor';
     import axios from 'axios';
     import util from '@util/util';
     import showdown from 'showdown';

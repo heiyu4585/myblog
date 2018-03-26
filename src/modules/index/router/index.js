@@ -2,9 +2,9 @@
 // const index = { template: '<div>index</div>' }
 
 // Vue.use(Router)
-import index from '../components/index';
-import article from '../components/article';
-import category from '../components/category';
+import index from '../components/index_page';
+import article_content from '../components/article_page';
+import category from '../components/category_page';
 
 export default ([
         {
@@ -14,14 +14,15 @@ export default ([
         },
         {
             path: '/article',
-            name: 'article',
-            component: article,
+            name: 'article_content',
+            component: article_content,
         },
         {
             path: '/category',
             name: 'category',
             component: category,
         },
+
         // {
         //     path: '/article',
         //     name: 'article',

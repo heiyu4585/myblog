@@ -15,7 +15,7 @@
 
 <script>
     import 'common/common.scss';
-    import Article from 'components/Article';
+    import Article from './Article';
     import axios from 'axios';
     const util = require("@util/util");
 

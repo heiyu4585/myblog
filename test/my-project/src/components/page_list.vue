@@ -25,6 +25,7 @@ export default {
   computed: {
     artList(){
       return store.state.artList
+      // return this.$store.state.artList //zhge这个写法也可以
     }
   },
 

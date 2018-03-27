@@ -2,7 +2,7 @@ import Vuex from 'vuex';
 import Vue from 'vue';
 
 Vue.use(Vuex);
-
+import axios from 'axios';
 export default new Vuex.Store({
     state: {
         count: 0,
@@ -37,6 +37,21 @@ export default new Vuex.Store({
         setArtList: (state, setArtList) => {
             state.setArtList = setArtList;
         },
+      fetchItem: (state, id) => {
+        console.log("我接收到了id"+id)
+         state.pageId = id;
+        //获取都id后拉去数据
+        axios({
+          method: 'post',
+          data:{
+            paramJson: {"firstResult":(id-1)*20,"maxResult":20*id,"pageIndex":id}
+          },
+          url: '/api/mcall/med/recommend/customer/resource/getMapListByCustomerId/',
+        })
+          .then(function (response) {
+            state.artList=response.data.responseObject.responseData.data_list;
+          }.bind(this));
+        },
     },
     ////todo 设置为指定页数
     actions: {
@@ -48,5 +63,10 @@ export default new Vuex.Store({
             console.log("我接收到了"+artList)
             commit('setArtList', artList);
         },
+      fetchItem: ({commit}, {id}) => {
+
+            commit('fetchItem', id);
+        },
+
     }
 })

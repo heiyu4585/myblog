@@ -12,6 +12,7 @@ export default {
   name: 'App',
   computed: {
   },
+
   mounted: function () {
 
    // setTimeout(function(){
@@ -127,19 +128,16 @@ export default {
    //   ]
    // },2000)
 
-    axios({
-      method: 'post',
-      data:{
-        paramJson: {"firstResult":0,"maxResult":20,"pageIndex":1}
-      },
-      url: '/api/mcall/med/recommend/customer/resource/getMapListByCustomerId/?paramJson=%7B%22firstResult%22%3A20%2C%22maxResult%22%3A20%2C%22pageIndex%22%3A2%7D&_=1522115847380',
-    })
-      .then(function (response) {
-        console.log("接口数据为====");
-
-        store.state.artList=response.data.responseObject.responseData.data_list;
-        console.log(store.state.artList)
-      }.bind(this));
+    // axios({
+    //   method: 'post',
+    //   data:{
+    //     paramJson: {"firstResult":0,"maxResult":20,"pageIndex":1}
+    //   },
+    //   url: '/api/mcall/med/recommend/customer/resource/getMapListByCustomerId/',
+    // })
+    //   .then(function (response) {
+    //     store.state.artList=response.data.responseObject.responseData.data_list;
+    //   }.bind(this));
   },
 }
 </script>

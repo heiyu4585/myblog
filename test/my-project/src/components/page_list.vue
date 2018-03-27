@@ -27,6 +27,14 @@ export default {
       return store.state.artList
     }
   },
+
+  mounted: function () {
+    console.log(this.$route.params.id)
+    //获取页数后 同步数据
+    store.dispatch('fetchItem',{
+      id:this.$route.params.id
+    })
+  }
 }
 </script>
 

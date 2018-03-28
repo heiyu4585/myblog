@@ -3,17 +3,17 @@
     <!--<h1>{{ msg }}</h1>-->
     <!--<h2>这是通过router的第二个页面组件</h2>-->
     <ul>
-      <li v-for="(item, index) in artList" :item="item" :key="item.id">
-       {{ item.resourceInfo.resourceObjectName}}
+      <li v-for="(ele, index) in item"  :key="index">
+        {{ ele.title|| ""}}<br/>
+        {{ ele.ct || ""}}<br/>
+        {{ ele.text ||""}}
       </li>
     </ul>
   </div>
 </template>
 
 <script>
-  import store from '../store';
 export default {
-  store,
   name: 'HelloWorld',
   data () {
     return {
@@ -23,16 +23,14 @@ export default {
   methods: {
   },
   computed: {
-    artList(){
-      return store.state.artList
-      // return this.$store.state.artList //zhge这个写法也可以
+    item(){
+      return this.$store.state.item //zhge这个写法也可以
     }
   },
 
   mounted: function () {
-    console.log(this.$route.params.id)
     //获取页数后 同步数据
-    store.dispatch('fetchItem',{
+    this.$store.dispatch('fetchItem',{
       id:this.$route.params.id
     })
   }

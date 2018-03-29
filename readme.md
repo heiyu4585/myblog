@@ -15,27 +15,23 @@ vue+vueRouter+express+express+mysql+graphQL
 4. 后台系统  博客文章的新增,更新
 1. 文章页搭建对于markdown
   6. 更新修改文章
-
+  4. ssr
 
 ## todoList
-
-
   
   1. 登录系统
+  graphQL+passport https://github.com/jessedvrs/graphql-passport-example
   
   3. 开发环境 dev添加
   
-  4. ssr
-  
-  5. vue-router article文章修改和栏目是否使用同一个layout
-  
-  7. graphQL+passport https://github.com/jessedvrs/graphql-passport-example
   
   8. graphql引用方式修改(引用方式???)
 
   9. 去掉#号https://router.vuejs.org/zh-cn/essentials/history-mode.html
 
-  10.栏目URL点击后不跳转
+  10. 栏目URL点击后不跳转
+
+  1. 前后端 项目同时 启动
 
 
 1.markdown组件
@@ -124,48 +120,7 @@ webpack如何提取vue组件的css到独立文件中:`ExtractTextPlugin.extract`
 [Node: Puppeteer + 图像识别 实现百度指数爬虫 #4](https://github.com/Coffcer/Blog/issues/4)
 
 
-
 ~~博客样式参考  http://zaaack.github.io/2015/12/29/projects/#chrome-timer~~
 
 
 https://segmentfault.com/a/1190000009565131
-
-### 坑:
-
-##### Computed property "currentPage" was assigned to but it has no setter
-```js
-
- // currentPage () {
-            //     return store.state.currentPage
-            // }
-
-            currentPage: {
-                get: function () {
-                    return store.state.currentPage
-                },
-                set: function () {
-                }
-            }
-```
-https://segmentfault.com/q/1010000010358438/a-1020000010358925
-https://github.com/ElemeFE/mint-ui/issues/1000
-
-##### vuex 的dispatch和commit提交mutation的区别
-
-很简单，一个异步操作与同步操作的区别。
-
-当你的操作行为中含有异步操作，比如向后台发送请求获取数据，就需要使用action的dispatch去完成了。
-其他使用commit即可。
-
-官方文档：
-[vuex action介绍](https://vuex.vuejs.org/zh-cn/actions.html)
-
-#### [vue中更改state的值](https://segmentfault.com/q/1010000009619507/a-1020000009620104)
-
-#### [vuex-demo](https://github.com/sailengsi/sls-vuex2-demo
-
-#### ssr适合多页 还是 单页
-
-https://github.com/vuejs/vue-hackernews-2.0/issues/187#issuecomment-303688734\
-
-https://github.com/hilongjw/vue-ssr-hmr-template/issues/4

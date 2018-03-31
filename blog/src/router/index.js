@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-
+import Meta from 'vue-meta'
 let index= () => import('@/view/index') // 改为异步组件
 let category= () => import('@/view/category') // 改为异步组件
 let post= () => import('@/view/article') // 改为异步组件
-
+Vue.use(Meta)
 Vue.use(Router)
 
 export function createRouter () {

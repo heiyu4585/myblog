@@ -120,7 +120,7 @@ var schema =require ('./api/schema');
 
 app.use('/api', graphqlHTTP({
     schema: schema,
-    graphiql: true, //启用GraphiQL
+    graphiql: isProd?false:true, //启用GraphiQL
 }));
 
 app.get('*', isProd ? render : (req, res) => {

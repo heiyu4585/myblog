@@ -28,6 +28,17 @@
             return {
             }
         },
+        metaInfo () {
+            return {
+
+                title: "思雨前端博客",
+                meta: [
+                    { charset: 'utf-8' },
+                    { name: 'description', content: "专注于WEB前端开发,分享前端开发和前端技术" },
+                    { name: 'keywords', content: "WEB前端开发,前端博客,前端技术开发" }
+                ]
+            }
+        },
         methods: {
             handleSizeChange(val) {
                 this.$store.dispatch('fetchIndexData', {
@@ -36,15 +47,12 @@
                 })
             },
             handleCurrentChange(val) {
-                // this.currentPage =val;
-                // console.log(`当前页: ${val}`);
-                // this.$store.state.indexCurrentPage =val;
-                // this.$store.dispatch('fetchIndexData', {
-                //     indexCurrentPage: val,
-                //     pageItems: this.$store.state.pageItems
-                // })
+                this.$store.dispatch('fetchIndexData', {
+                    indexCurrentPage: val,
+                    pageItems: this.$store.state.pageItems
+                })
                 //    todo 有的时候会失效
-                this.$router.push( '/page/'+val)
+                // this.$router.push( '/page/'+val)
             },
         },
         asyncData({store, route}) {
@@ -80,19 +88,18 @@
             Aside
         },
         mounted: function () {
-            console.log(this.$route.params)
         },
         watch: {
             '$route' (to, from) {
                 // 对路由变化作出响应...
 
-                var pageId =parseInt( to.params.pageId);
-                console.log("router变化为了",pageId)
-                this.$store.state.indexCurrentPage =pageId;
-                this.$store.dispatch('fetchIndexData', {
-                    indexCurrentPage: pageId,
-                    pageItems: this.$store.state.pageItems
-                })
+                // var pageId =parseInt( to.params.pageId);
+                // console.log("router变化为了",pageId)
+                // this.$store.state.indexCurrentPage =pageId;
+                // this.$store.dispatch('fetchIndexData', {
+                //     indexCurrentPage: pageId,
+                //     pageItems: this.$store.state.pageItems
+                // })
             }
         }
     }

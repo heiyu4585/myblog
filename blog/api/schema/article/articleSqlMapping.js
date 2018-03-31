@@ -35,7 +35,9 @@ left JOIN category ON articles.art_category_id = category.category_id where cate
     //栏目中文章数量
     // articlesByCategoryIdLength:"SELECT COUNT( *)  as total FROM articles_category_relationship where category_id =? ",
     articlesByCategoryIdLength:"SELECT count(*) as total FROM articles WHERE art_category_id = ? ",
-    categories:`SELECT * FROM category`
+    categories:`SELECT * FROM category`,
+    categoryByCategoryId:`SELECT * FROM category where category_id =?`,
+
 };
 
 module.exports = user;

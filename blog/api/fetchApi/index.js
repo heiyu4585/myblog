@@ -93,6 +93,7 @@ export function getArticle({articleId}) {
                               article(art_id:${articleId}){
                                 art_id
                                 art_title
+                                art_des
                                 art_content
                                 art_create_time
                                 category_url

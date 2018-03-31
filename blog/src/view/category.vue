@@ -28,6 +28,17 @@
             return {
             }
         },
+        metaInfo () {
+            return {
+
+                title:this.$store.state.categoriesList[this.$route.params.categoryId].category_name+"|思雨前端博客",
+                meta: [
+                    { charset: 'utf-8' },
+                    { name: 'description', content: this.$store.state.categoriesList[this.$route.params.categoryId].category_des },
+                    { name: 'keywords', content: this.$store.state.categoriesList[this.$route.params.categoryId].category_des+","+"前端开发" }
+                    ]
+            }
+        },
         methods: {
             handleSizeChange(val) {
                 this.$store.dispatch('fetchIndexData', {
@@ -38,13 +49,13 @@
             handleCurrentChange(val) {
                 // this.currentPage =val;
                 // console.log(`当前页: ${val}`);
-                // this.$store.state.indexCurrentPage =val;
-                // this.$store.dispatch('fetchIndexData', {
-                //     indexCurrentPage: val,
-                //     pageItems: this.$store.state.pageItems
-                // })
+                this.$store.state.indexCurrentPage =val;
+                this.$store.dispatch('fetchIndexData', {
+                    indexCurrentPage: val,
+                    pageItems: this.$store.state.pageItems
+                })
                 //    todo 有的时候会失效
-                this.$router.push( 'category/'+this.$route.params.categoryId+'/page/'+val)
+                // this.$router.push( 'category/'+this.$route.params.categoryId+'/page/'+val)
             },
         },
         asyncData({store, route}) {
@@ -65,6 +76,9 @@
             pageItems() {
                 return this.$store.state.pageItems //每页显示多少条
             },
+            category() {
+                return this.$store.state.category //每页显示多少条
+            },
             categoriesList() {
                 return this.$store.state.categoriesList //每页显示多少条
             },
@@ -81,7 +95,7 @@
             Aside
         },
         mounted: function () {
-            console.log(this.$route.params)
+
         },
         watch: {
             '$route' (to, from) {

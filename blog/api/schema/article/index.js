@@ -218,7 +218,6 @@ module.exports = {
                 art_id: {type: GraphQLInt}
             },
             resolve: async(source, args) => {
-                console.log(args)
                 return await util.searchSql($articleSql.articleById,[args.art_id]);
             }
         },

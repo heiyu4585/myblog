@@ -33,6 +33,17 @@
             return {
             }
         },
+        metaInfo () {
+            return {
+
+                title: this.articleContent.art_title+"|"+this.articleContent.category_name+"|思雨前端",
+                meta: [
+                    { charset: 'utf-8' },
+                    { name: 'description', content: this.articleContent.art_des },
+                    { name: 'keyword', content: this.articleContent.art_title+","+this.articleContent.category_name}
+                ]
+            }
+        },
         asyncData({store, route}) {
             // 获取首页列表
             return store.dispatch('fetchArticle', {

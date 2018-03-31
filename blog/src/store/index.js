@@ -31,10 +31,7 @@ export function createStore() {
             },
             //获取文章内容
             fetchArticle: ({commit}, params) => {
-                console.log(params);
                 return fetchApi.getArticle(params).then(items => {
-                    console.log("lanmu栏目列表")
-                    console.log(items)
                     commit('setArticle', items)
                 })
             },
@@ -55,8 +52,6 @@ export function createStore() {
             },
             //设置栏目 状态
             setCategoryData: (state, items) => {
-                console.log("she设置 栏目  状态")
-                console.log(items);
                 state.catArtList = items.articles.rows;
                 state.categoriesList = items.categories;
                 state.catCurrentPage = items.articles.page_no;
@@ -64,12 +59,7 @@ export function createStore() {
             },
             //设置文章 状态
             setArticle: (state, items) => {
-                console.log("she设置 栏目  状态")
-                console.log(items);
                 state.articleContent = items.article[0];
-                // state.categoriesList = items.categories;
-                // state.catCurrentPage = items.articles.page_no;
-                // state.catTotalitems = items.articles.total_items;
             }
         },
         getters: {}

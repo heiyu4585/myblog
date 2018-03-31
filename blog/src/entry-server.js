@@ -7,6 +7,11 @@ export default context => {
   return new Promise((resolve, reject) => {
     const { app, router, store } = createApp()
     router.push(context.url)
+
+      //vue-meta
+      const meta = app.$meta() // here
+      context.meta = meta // and here
+
     // 等到 router 将可能的异步组件和钩子函数解析完
     router.onReady(() => {
       const matchedComponents = router.getMatchedComponents()

@@ -16,6 +16,8 @@ const serverInfo =
 
 const app = express()
 
+// const proxy = require('http-proxy-middleware');
+
 function createRenderer (bundle, options) {
     // https://github.com/vuejs/vue/blob/dev/packages/vue-server-renderer/README.md#why-use-bundlerenderer
     return createBundleRenderer(bundle, Object.assign(options, {
@@ -112,10 +114,27 @@ function render (req, res) {
     })
 }
 
+//graphql
+var graphqlHTTP = require('express-graphql');
+var schema =require ('./api/schema');
+
+app.use('/api', graphqlHTTP({
+    schema: schema,
+    graphiql: true, //启用GraphiQL
+}));
+
 app.get('*', isProd ? render : (req, res) => {
     readyPromise.then(() => render(req, res))
 })
-
+// 反向代理（这里把需要进行反代的路径配置到这里即可）
+// eg:将/api/test 代理到 ${HOST}/api/test
+// app.use(proxy('/api', {
+//     target: "http://127.0.0.1:8080",
+//     changeOrigin: true,
+//     // pathRewrite: {
+//     //     '^/api': '/'
+//     // },
+// }));
 const port = process.env.PORT || 8080
 app.listen(port, () => {
     console.log(`server started at localhost:${port}`)

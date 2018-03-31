@@ -124,3 +124,17 @@ webpack如何提取vue组件的css到独立文件中:`ExtractTextPlugin.extract`
 
 
 https://segmentfault.com/a/1190000009565131
+
+
+坑:
+
+1.Module build failed: Error: "extract-text-webpack-plugin" loader is used without the corresponding plugin, refer to https://github.com/webpack/extract-text-webpack-plugin for the usage example     at Object.pitch
+`set NODE_ENV=development
+
+
+# todolist
+1.如果接口不在router内的页面组件内,而是在页面组件的子组件内,暂时没有实现数据预取.
+
+暂时通过grahql实现接口合并
+
+2.this.$router.push  有的时候回失效.与ele的分页组件组合

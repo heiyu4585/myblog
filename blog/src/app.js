@@ -4,6 +4,12 @@ import App from './App.vue'
 import { createRouter } from './router/index'
 import { createStore } from './store/index'
 import { sync } from 'vuex-router-sync'
+
+//引用ele
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+Vue.use(ElementUI);
+
 export function createApp () {
   // 创建 router 实例
   const router = createRouter()

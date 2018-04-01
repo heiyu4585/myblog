@@ -37,46 +37,6 @@
             }
         },
         methods: {
-            handleSizeChange(val) {
-                 this.page_items = val;
-            },
-            handleCurrentChange(val) {
-                this.currentPage =val;
-                console.log(`当前页: ${val}`);
-                this.getArticle({currentPage:this.currentPage,page_items:this.page_items});
-            },
-            getArticle({currentPage,page_items}){
-                axios({
-                    method: 'post',
-                    url: '/api',
-                    data: {
-                        query:
-                            `
-                        {
-                         articles(page_no:${currentPage},page_items:${page_items}){
-                          page_items
-                          page_no
-                          total_items
-                          rows{
-                         art_id
-                        art_title
-                        art_content
-                        art_des
-                        art_create_time
-                        category_name
-                        category_url
-  }
-}
-}
-                    `
-                    }
-                })
-                    .then(function (response) {
-                        this.artList = response.data.data.articles.rows;
-                        this.total_items = response.data.data.articles.total_items;
-                        this.page_no = response.data.data.articles.page_no;
-                    }.bind(this));
-            }
         },
         components: {
             Header,
@@ -86,9 +46,6 @@
             Article
         },
         mounted: function () {
-            // GET request for remote image
-            console.log(this.currentPage);
-            this.getArticle({currentPage:this.currentPage,page_items:this.page_items});
         },
     }
 </script>

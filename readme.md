@@ -16,7 +16,7 @@ vue+vueRouter+express+express+mysql+graphQL
 1. 文章页搭建对于markdown
   6. 更新修改文章
   4. ssr
-
+5.ssr 的title和meta描述信息
 ## todoList
   
   1. 登录系统
@@ -138,3 +138,5 @@ https://segmentfault.com/a/1190000009565131
 暂时通过grahql实现接口合并
 
 2.this.$router.push  有的时候回失效.与ele的分页组件组合
+
+初步怀疑 promise 问题,因为快速点击会失效

@@ -2,7 +2,6 @@
 
 vue+vueRouter+express+express+mysql+graphQL
 
-
 主要功能
 
 1. vue 热更新

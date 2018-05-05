@@ -51,3 +51,13 @@ ErrorLog   错误日志保存位置
 CustomLog  访问日志保存位置
 
 [apache配置二级域名](https://segmentfault.com/a/1190000007512622)
+
+
+## nodejs
+
+1.版本升级 
+`#npm install -g n  `
+2.更新到最新版本 
+`# n stable   `
+3.或者更新到指定版本  
+`# n  v6.0.0    `

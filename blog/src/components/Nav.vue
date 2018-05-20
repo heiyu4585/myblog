@@ -6,7 +6,7 @@
                     <a href="/">博客</a>
                 </li>
                 <li>
-                    <a href="/project">项目</a>
+                    <a href="/puppetry">项目</a>
                 </li>
             </ul>
         </div>

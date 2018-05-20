@@ -2,8 +2,9 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Meta from 'vue-meta'
 let index= () => import('@/view/index') // 改为异步组件
-let category= () => import('@/view/category') // 改为异步组件
-let post= () => import('@/view/article') // 改为异步组件
+let category= () => import('@/view/category')
+let post= () => import('@/view/article')
+let puppetry = () => import('@/view/puppetry')
 Vue.use(Meta)
 Vue.use(Router)
 
@@ -18,7 +19,7 @@ export function createRouter () {
         },
         {
             path: '/page/:pageId',
-            name: 'index',
+            name: 'page',
             component: index,
             meta: {requiresAuth: true}
         },
@@ -28,10 +29,15 @@ export function createRouter () {
             component: post,
         },
         {
-            path: '/category',
-            name: 'category',
-            component: category,
+            path: '/puppetry',
+            name: 'puppetry',
+            component: puppetry,
         },
+        // {
+        //     path: '/category',
+        //     name: 'category',
+        //     component: category,
+        // },
         {
             path: '/category/:categoryId',
             name: 'categoryWithId',

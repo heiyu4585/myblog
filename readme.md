@@ -1,3 +1,7 @@
+#启动方式
+
+1.
+
 技术栈:
 
 vue+vueRouter+express+express+mysql+graphQL
@@ -18,6 +22,13 @@ vue+vueRouter+express+express+mysql+graphQL
 5.ssr 的title和meta描述信息
 
 ## todoList
+ - Puppeteer 
+    - 当前功能点:
+        - 屏幕快照
+        - 样式比对
+    - 待开发
+        - 设置cookie
+        - 爬虫去掘金抓数据
 
   1. 登录系统
   graphQL+passport https://github.com/jessedvrs/graphql-passport-example
@@ -27,14 +38,18 @@ vue+vueRouter+express+express+mysql+graphQL
   
   8. graphql引用方式修改(引用方式???)
 
-  9. 去掉#号https://router.vuejs.org/zh-cn/essentials/history-mode.html
 
   10. 栏目URL点击后不跳转
 
-  1. 前后端 项目同时 启动
 
    2. /blog 301至 blog. 二级域名
     配置了 /blog 没有访问的权限及 index.php跳转但是没有起作用
+  
+  ## 已完成 
+    9. 去掉#号https://router.vuejs.org/zh-cn/essentials/history-mode.html //history模式
+  1. 前后端 项目同时 启动  目前考虑不需要
+
+  
     
 #知识点
 
@@ -177,3 +192,7 @@ https://www.v2ex.com/t/325776
 2.this.$router.push  有的时候回失效.与ele的分页组件组合
 
 初步怀疑 promise 问题,因为快速点击会失效
+
+## alinode  : 
+
+启动命令ENABLE_NODE_LOG=YES ./node_modules/.bin/cross-env NODE_ENV=production node app

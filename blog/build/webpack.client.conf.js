@@ -6,7 +6,7 @@ const VueSSRClientPlugin = require('vue-server-renderer/client-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const path = require('path')
 const config = merge(base, {
-  mode: 'production',
+  // mode: 'production',
   entry: {
     app: './src/entry-client.js'
   },

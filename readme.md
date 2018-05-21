@@ -22,6 +22,9 @@ vue+vueRouter+express+express+mysql+graphQL
 5.ssr 的title和meta描述信息
 
 ## todoList
+ - 添加nodeMail
+    修改第三方邮箱验证码
+    注意不要提交 邮箱码
  - Puppeteer 
     - 当前功能点:
         - 屏幕快照
@@ -103,12 +106,6 @@ ssr
 [Vue-Koa同构开发环境](http://miaooo.me/article/Vue-Koa%E5%90%8C%E6%9E%84%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83)
 
 
-#### 小问题:
-
-webpack如何提取vue组件的css到独立文件中:`ExtractTextPlugin.extract`
-[ExtractTextPlugin.extract](https://segmentfault.com/q/1010000005363929)
-
-
 
 #### 待完成:
 1. [为 Koa 框架封装 webpack-dev-middleware 中间件](https://segmentfault.com/a/1190000004883199)
@@ -145,45 +142,7 @@ webpack如何提取vue组件的css到独立文件中:`ExtractTextPlugin.extract`
 https://segmentfault.com/a/1190000009565131
 
 
-坑:
 
-1.Module build failed: Error: "extract-text-webpack-plugin" loader is used without the corresponding plugin, refer to https://github.com/webpack/extract-text-webpack-plugin for the usage example     at Object.pitch
-`set NODE_ENV=development
-2.connect ECONNREFUSED 127.0.0.1:3306
-
-```js
-socketPath: '/var/run/mysqld/mysqld.sock'
-In MAMP, you go to http://localhost:8888/MAMP, and you find:
-
-/Applications/MAMP/tmp/mysql/mysql.sock
-At the end you have:
-
-var connection = mysql.createConnection({
-  host     : config.host,
-  user     : config.user,
-  password : config.pass,
-  database : config.db,
-  socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock'
-});
-```
-
-https://stackoverflow.com/questions/30266221/node-js-mysql-error-connect-econnrefused
-
-3.apache2 linux 配置端口映射相应目录
-如何在 apache 服务器上部署 nodejs 应用？
-♥
-```js
-<VirtualHost *:80> 
-ServerName app.A.com 
-ServerAlias app.A.com *.app.A.com 
-ProxyPass / http://localhost:3000/ 
-ProxyPassReverse / http://localhost:3000/ 
-ErrorLog logs/app.A.com-error_log 
-CustomLog logs/app.A.com-access_log common 
-</VirtualHost>
-```
-
-https://www.v2ex.com/t/325776
 # todolist
 1.如果接口不在router内的页面组件内,而是在页面组件的子组件内,暂时没有实现数据预取.
 

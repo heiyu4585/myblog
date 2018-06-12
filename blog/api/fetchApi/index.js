@@ -4,7 +4,7 @@ export function indexData(indexCurrentPage, indexPageItems) {
     return new Promise(function (resolve, reject) {
         axios({
             method: 'post',
-            url: 'http://127.0.0.1:8080/api',
+            url: 'http://39.104.94.31:8080/api',
             data: {
                 query:
                     `
@@ -45,7 +45,7 @@ export function categoryData({currentPage,pageItems,categoryId}) {
     return new Promise(function (resolve, reject) {
             axios({
                 method: 'post',
-                url: 'http://127.0.0.1:8080/api',
+                url: 'http://39.104.94.31:8080/api',
                 data: {
                     query:
                         `
@@ -85,7 +85,7 @@ export function getArticle({articleId}) {
     return new Promise(function (resolve, reject) {
         axios({
             method: 'post',
-            url: 'http://127.0.0.1:8080/api',
+            url: 'http://39.104.94.31:8080/api',
             data: {
                 query:
                     `

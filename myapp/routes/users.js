@@ -5,7 +5,15 @@ var Weixin = require('weixin-apis');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+    weixin.on('textMsg', function(data) {
+        var msg = {
+            toUserName : data.fromUserName,
+            fromUserName : data.toUserName,
+            msgType : 'text',
+            content : data.content
+        };
+        res.send(msg);
+    });
 });
 
 module.exports = router;

@@ -44,12 +44,13 @@ export function createStore() {
             //设置首页 状态
             setIndexData: (state, items) => {
                 console.log("iteems+",items)
-                if(items && items.articles && items.articles.rows){
+                if(items && items.articles){
                     state.indexArtList = items.articles.rows;
+                    state.categoriesList = items.categories;
+                    state.indexCurrentPage = items.articles.page_no;
+                    state.indexTotalitems = items.articles.total_items;
                 }
-                state.categoriesList = items.categories;
-                state.indexCurrentPage = items.articles.page_no;
-                state.indexTotalitems = items.articles.total_items;
+
                 // TODO 为啥官方推荐这个配置
                 // Vue.set(state.indexArtList,JSON.stringify(item))
             },

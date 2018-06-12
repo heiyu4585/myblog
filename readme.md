@@ -1,5 +1,21 @@
 #启动方式
 
+
+# 后台安装方式
+
+`cd admin` 
+`npm i`
+
+
+后台启动方式(admin.js文件很大11兆带改版升级)
+`cd admin && node app `
+
+
+新增文章 `open host:8081/admin#/article/add`
+
+文章列表 `/admin#/article/list`
+
+
 1.
 
 技术栈:

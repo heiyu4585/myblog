@@ -47,7 +47,6 @@
     "postcss-import": "^11.0.0",
     "postcss-loader": "^2.0.8",
     "postcss-url": "^7.2.1",
-    "puppeteer": "^1.4.0",
     "rimraf": "^2.6.0",
     "route-cache": "^0.4.4",
     "sass-loader": "^6.0.7",

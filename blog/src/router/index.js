@@ -4,7 +4,6 @@ import Meta from 'vue-meta'
 let index= () => import('@/view/index') // 改为异步组件
 let category= () => import('@/view/category')
 let post= () => import('@/view/article')
-let puppetry = () => import('@/view/puppetry')
 Vue.use(Meta)
 Vue.use(Router)
 
@@ -28,11 +27,11 @@ export function createRouter () {
             name: 'post',
             component: post,
         },
-        {
-            path: '/puppetry',
-            name: 'puppetry',
-            component: puppetry,
-        },
+        // {
+        //     path: '/puppetry',
+        //     name: 'puppetry',
+        //     component: puppetry,
+        // },
         // {
         //     path: '/category',
         //     name: 'category',

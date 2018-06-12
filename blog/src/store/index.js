@@ -43,7 +43,10 @@ export function createStore() {
             },
             //设置首页 状态
             setIndexData: (state, items) => {
-                state.indexArtList = items.articles.rows;
+                console.log("iteems+",items)
+                if(items && items.articles && items.articles.rows){
+                    state.indexArtList = items.articles.rows;
+                }
                 state.categoriesList = items.categories;
                 state.indexCurrentPage = items.articles.page_no;
                 state.indexTotalitems = items.articles.total_items;

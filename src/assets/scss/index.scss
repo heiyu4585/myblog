@@ -1,0 +1,45 @@
+@import "./base";
+
+.warp{
+  background: #f4f5f5;
+}
+
+header {
+  width:100%;
+  background: #fff;
+  @include clearfix();
+  .head-warp{
+    width:1200px;
+    margin:0 auto;
+    padding: rem(20px) 0;
+    box-sizing: border-box;
+    h1{
+      font-size: 26px;
+    }
+    h2{
+      font-size: 16px;
+      margin-bottom: rem(60px);
+    }
+    ul{
+      display: inline-block;
+      height: rem(200px);
+      width:100%;
+      background: #2fa0ef;
+      li{
+        float:left;
+        font-size: 20px;
+        height: rem(200px);
+        color: #fff;
+        line-height: rem(200px);
+        padding:0 rem(50px);
+        &:hover{
+          color: #007fff;
+          cursor: pointer;
+
+        }
+      }
+    }
+
+  }
+
+}

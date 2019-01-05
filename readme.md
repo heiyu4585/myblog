@@ -15,6 +15,10 @@
 
 文章列表 `/admin#/article/list`
 
+## 开发环境
+
+npm run dev
+
 
 前台访问
 
@@ -24,6 +28,10 @@
 
 3.栏目页 `:8080/category/3`
 
+
+## 生产环境
+`cd blog && npm start`
+`cd admin && npm start` //用于提交接口
 
 --
 
